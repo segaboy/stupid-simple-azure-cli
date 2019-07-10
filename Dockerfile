@@ -9,9 +9,13 @@ RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
 # create yum repo file
 RUN sh -c 'echo -e \
-"[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/a\
-zure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/mic\
-rosoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+"[azure-cli]\n\
+name=Azure CLI\n\
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli\n\
+enabled=1\n\
+gpgcheck=1\n\
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" > \
+/etc/yum.repos.d/azure-cli.repo'
 
 # Install Azure-CLI
 RUN yum -y install azure-cli
