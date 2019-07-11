@@ -26,7 +26,7 @@ RUN cp /etc/skel/.bash* ~
 # Prompt AZ Login each time container starts
 RUN sh -c \
 'echo -e \
-"PS1="simple azure cli : \naz login\n"" >> ~/.bashrc'
+"az login" >> ~/.bashrc'
 
 # A place to work...
 ENTRYPOINT /bin/bash
